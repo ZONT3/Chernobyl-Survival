@@ -1,0 +1,34 @@
+if (!isServer) exitWith {};
+
+ad_create = compile loadFile "airdrop\create.sqf";
+ad_performing = false;
+ad_initnew ={
+	ad_performing = true;
+	"Supply Airdrop is coming to designated location, marked on map! Try to be first, who will loot it!" remoteExec ["hint"];
+	_pos = markerPos "ad_spawnzone";
+	_pos0 = _pos select 0; _pos1 = _pos select 1; _pos2 = 0;
+	_radius = (markerSize "ad_spawnzone") select 0;
+	_BARREL = createVehicle ["Land_BarrelEmpty_F",[_pos0,_pos1,_pos2], [], _radius, "can_Collide"];
+	_spos = [(getPos _BARREL) select 0,(getPos _BARREL) select 1,800];
+	hint format ["Airdrop is coming to pos %1", _spos];
+	_spos call ad_create;
+	deleteVehicle _BARREL;
+	_mkz = createMarker ["ad_mrk_zone", _spos];
+	_mkz setMarkerShape "ELLIPSE";
+	_mkz setMarkerSize [400, 400];
+	_mkz setMarkerColor "ColorGreen";
+	_mkz setMarkerBrush "FDiagonal";
+	_mk = createMarker ["ad_mrk", _spos];
+	_mk setMarkerShape "ICON";
+	_mk setMarkerColor "ColorKhaki";
+	_mk setMarkerType "mil_end";
+	_mk setMarkerText "Supply Airdrop";
+};
+ad_trigger = createTrigger ["EmptyDetector", [0,0], true];
+ad_trigger setTriggerActivation ["NONE", "PRESENT", true];
+ad_trigger setTriggerStatements ["!ad_performing", "call ad_initnew;", ""];
+ad_trigger setTriggerTimeout [600, 1020, 1500, true];
+ad_trigger_disable = createTrigger ["EmptyDetector", [0,0], true];
+ad_trigger_disable setTriggerActivation ["NONE", "PRESENT", true];
+ad_trigger_disable setTriggerStatements ["ad_performing", "ad_performing = false; deleteMarker 'ad_mrk'; deleteMarker 'ad_mrk_zone'", ""];
+ad_trigger_disable setTriggerTimeout [180, 180, 180, true];

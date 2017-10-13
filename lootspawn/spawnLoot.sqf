@@ -12,15 +12,15 @@ _type= floor random 6;
 if ((_this select 2) in milBuildings) then {_type=selectRandom[6,6,6,7,7,8,9,10,11]};
 if ((_this select 2) in medBuildings) then {_type=selectRandom[12,12,12,12,12,12,12,12,12,0]};
 
-	_dbg ={ if (_showLoot) then {			
-			_id=format ["%1",_pos];
-			_debug=createMarker [_id,GETPOS _holder];
-			_debug setMarkerShape "ICON";
-			_debug setMarkerType "mil_dot";
-			_debug setMarkerColor (_this select 1);
-			_txt=format ["%1",_this select 0];
-			_debug setMarkerText _txt;	
-					};};
+_dbg ={ if (_showLoot) then {			
+		_id=format ["%1",_pos];
+		_debug=createMarker [_id,GETPOS _holder];
+		_debug setMarkerShape "ICON";
+		_debug setMarkerType "mil_dot";
+		_debug setMarkerColor (_this select 1);
+		_txt=format ["%1",_this select 0];
+		_debug setMarkerText _txt;	
+};};
 						
 // Spawn Weapon
  if (_type == 0) 

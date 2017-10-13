@@ -1,1 +1,2 @@
 disabledAI = 1;
+respawnOnStart = 0;

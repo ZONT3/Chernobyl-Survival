@@ -68,7 +68,7 @@ private ["_distance","_houseList"];
 					
 				if (_probability > random 100) 
 					then {
-				null=[_buildingPos,_showLoot,typeOf _house] execVM "lootspawn\spawnloot.sqf";
+				[_buildingPos,_showLoot,typeOf _house] execVM "lootspawn\spawnloot.sqf";
 						};	
 					};
 				};				
@@ -81,7 +81,7 @@ private ["_distance","_houseList"];
 
  	if (_probability > random 100) 
 					then {
-				null=[getPosATL _point,_showLoot,_point] execVM "lootspawn\spawnloot.sqf";
+				[getPosATL _point,_showLoot,_point] execVM "lootspawn\spawnloot.sqf";
 						};
  	}foreach _points;
 	

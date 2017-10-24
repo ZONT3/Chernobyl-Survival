@@ -20,9 +20,9 @@ for "_i" from 0 to count CHSAI_resps_t1 -1 do {
 			_unit = _grp createUnit [selectRandom CHSAI_units_t1, _pos, [], 5, "NONE"];
 			_unit setSkill 1;
 		};
-	};
 
-	[_grp, _pos] call CHSAI_setPatrol;
+		[_grp, _pos] call CHSAI_setPatrol;
+	};
 };
 
 for "_i" from 0 to count CHSAI_resps_t2 -1 do {
@@ -35,9 +35,9 @@ for "_i" from 0 to count CHSAI_resps_t2 -1 do {
 			_unit = _grp createUnit [selectRandom CHSAI_units_t2, _pos, [], 5, "NONE"];
 			_unit setSkill 1;
 		};
+	
+		[_grp, _pos] call CHSAI_setPatrol;
 	};
-
-	[_grp, _pos] call CHSAI_setPatrol;
 };
 
 for "_i" from 0 to count CHSAI_resps_t3 -1 do {
@@ -50,9 +50,9 @@ for "_i" from 0 to count CHSAI_resps_t3 -1 do {
 			_unit = _grp createUnit [selectRandom CHSAI_units_t3, _pos, [], 5, "NONE"];
 			_unit setSkill 1;
 		};
-	};
 
-	[_grp, _pos] call CHSAI_setPatrol;
+		[_grp, _pos] call CHSAI_setPatrol;
+	};
 };
 
 for "_i" from 0 to count CHSAI_resps_t4 -1 do {
@@ -65,7 +65,7 @@ for "_i" from 0 to count CHSAI_resps_t4 -1 do {
 			_unit = _grp createUnit [selectRandom CHSAI_units_t4, _pos, [], 5, "NONE"];
 			_unit setSkill 1;
 		};
+		
+		[_grp, _pos] call CHSAI_setPatrol;
 	};
-
-	[_grp, _pos] call CHSAI_setPatrol;
 };

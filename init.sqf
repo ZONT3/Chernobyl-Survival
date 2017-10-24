@@ -6,3 +6,4 @@ execVM "initPlayer.sqf";
 execVM "airdrop\init.sqf";
 execVM "sc\init.sqf";
 execVM "ai\init.sqf";
+execVM "radexa\init.sqf";
